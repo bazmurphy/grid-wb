@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>CSS Grid Alignment + Centering!</title>
+  </head>
+  <body class="iframe-body">
+    <pre><code>.container {
+  height: 500px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: (2, 200px);
+
+  /* justify is row axis */
+  /* align is column axis */
+
+  /* justify-items: stretch (default) | end  | center | stretch | auto  */
+  justify-items: center;
+
+  /* align-items: stretch (default) | end | center | stretch | space-between | space-around | space-evenly | baseline */
+  align-items: center;
+
+  /* shorthand for both^ */
+  /* place-items: center center; */
+
+  /* justify-content: start (default) | end | center | stretch | space-between | space-around | space-evenly */
+  justify-content: space-between;
+
+  /* align-content: stretch (default) | end | center | stretch | space-between | space-around | space-evenly */
+  align-content: space-evenly;
+
+  /* shorthand for both^ */
+  /* place-content: space-evenly space-evenly; */
+
+  gap: 20px;
+}
+
+.itm4 {
+  /* justify-self: auto (default) | stretch | end | center | stretch */
+  justify-self: end;
+  
+  /* align-self: auto (default) | stretch | end | center | stretch | space-between | space-around | space-evenly | baseline */
+  align-self: end;
+}</code></pre>
+    <div class="container">
+      <div class="itm itm1">1</div>
+      <div class="itm itm2">2</div>
+      <div class="itm itm3">3</div>
+      <div class="itm itm4">Baz</div>
+      <div class="itm itm5">5</div>
+      <div class="itm itm6">6</div>
+      <div class="itm itm7">7</div>
+      <div class="itm itm8">8</div>
+    </div>
+    <style>
+      .container {
+        height: 500px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: (2, 200px);
+
+        /* justify is row axis */
+        /* align is column axis */
+
+        /* justify-items: stretch (default) | end  | center | stretch | auto  */
+        justify-items: center;
+
+        /* align-items: stretch (default) | end | center | stretch | space-between | space-around | space-evenly | baseline */
+        align-items: center;
+
+        /* shorthand for both^ */
+        /* place-items: center center; */
+
+        /* justify-content: start (default) | end | center | stretch | space-between | space-around | space-evenly */
+        justify-content: space-between;
+
+        /* align-content: stretch (default) | end | center | stretch | space-between | space-around | space-evenly */
+        align-content: space-evenly;
+
+        /* shorthand for both^ */
+        /* place-content: space-evenly space-evenly; */
+
+        gap: 20px;
+        border: 1px solid hsla(0, 0%, 0%, 0.25);
+      }
+
+      .itm {
+        border-radius: 0.5rem;
+        background: linear-gradient(
+          120deg,
+          hsl(35, 100%, 60%),
+          hsl(65, 100%, 62%)
+        );
+        box-shadow: 0 2px 0 hsla(0, 0%, 0%, 0.1);
+        font-size: 2rem;
+      }
+
+      .itm4 {
+        /* justify-self: auto (default) | stretch | end | center | stretch */
+        justify-self: end;
+
+        /* align-self: auto (default) | stretch | end | center | stretch | space-between | space-around | space-evenly | baseline */
+        align-self: end;
+        filter: hue-rotate(100deg);
+      }
+    </style>
+  </body>
+</html>

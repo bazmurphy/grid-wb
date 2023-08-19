@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Using minmax() for Responsive Grids!</title>
+  </head>
+  <body class="iframe-body">
+    <pre><code>.container1 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.container2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.container3 {
+  display: grid;
+  /* instead of using auto */
+  /* you can use fit-content and give it the maximum width it can expand to */
+  grid-template-columns: 150px fit-content(100px) 150px 150px;
+  gap: 20px;
+}</code></pre>
+    <div class="container1">
+      <div class="item item1">Item 01</div>
+      <div class="item item2">Hello!</div>
+      <div class="item item3">Item 03</div>
+      <div class="item item4">Item 04</div>
+    </div>
+    <div class="container2">
+      <div class="item item1">Item 01</div>
+      <div class="item item2">Hello!</div>
+      <div class="item item3">Item 03</div>
+      <div class="item item4">Item 04</div>
+    </div>
+
+    <div class="container3">
+      <div class="item item1">Item 01</div>
+      <div class="item item2">Hello!</div>
+      <div class="item item3">Item 03</div>
+      <div class="item item4">Item 04</div>
+    </div>
+    <style>
+      .container1 {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 20px;
+        margin-bottom: 1rem;
+      }
+
+      .container2 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+        margin-bottom: 1rem;
+      }
+
+      .container3 {
+        display: grid;
+        /* instead of using auto */
+        /* you can use fit-content and give it the maximum width it can expand to */
+        grid-template-columns: 150px fit-content(100px) 150px 150px;
+        gap: 20px;
+      }
+
+      .item2 {
+        filter: hue-rotate(100deg);
+      }
+    </style>
+  </body>
+</html>

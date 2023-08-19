@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Grid Template Areas</title>
+  </head>
+  <body class="iframe-body">
+    <pre><code>.container {
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+  grid-template-rows: 150px 150px 100px;
+  grid-template-areas:
+    "sidebar-1  content   sidebar-2"
+    "sidebar-1  content   sidebar-2"
+    "footer     footer    footer";
+  gap: 20px;
+}
+
+.item1 {
+  grid-area: sidebar-1;
+}
+
+.item2 {
+  grid-area: content;
+}
+
+.item3 {
+  grid-area: sidebar-2;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+@media (max-width: 700px) {
+  .container {
+    grid-template-rows: auto 150px 100px;
+    grid-template-areas:
+      "content    content     content"
+      "sidebar-1  sidebar-1   sidebar-2"
+      "footer     footer      footer";
+  }
+}</code></pre>
+    <div class="container">
+      <div class="item item1">
+        <p>sidebar-1</p>
+      </div>
+      <div class="item item2">
+        <p>content</p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore,
+          sed.
+        </p>
+      </div>
+      <div class="item item3">
+        <p>sidebar-2</p>
+      </div>
+      <div class="item footer">
+        <p>footer</p>
+      </div>
+    </div>
+    <style>
+      .container {
+        display: grid;
+        grid-template-columns: 1fr 10fr 1fr;
+        grid-template-rows: 150px 150px 100px;
+        grid-template-areas:
+          "sidebar-1  content   sidebar-2"
+          "sidebar-1  content   sidebar-2"
+          "footer     footer    footer";
+        gap: 20px;
+      }
+
+      .item1 {
+        grid-area: sidebar-1;
+        filter: hue-rotate(50deg);
+      }
+
+      .item2 {
+        grid-area: content;
+        filter: hue-rotate(100deg);
+      }
+
+      .item3 {
+        grid-area: sidebar-2;
+        filter: hue-rotate(150deg);
+      }
+
+      .footer {
+        grid-area: footer;
+        filter: hue-rotate(200deg);
+      }
+
+      @media (max-width: 700px) {
+        .container {
+          grid-template-rows: auto 150px 100px;
+          grid-template-areas:
+            "content    content     content"
+            "sidebar-1  sidebar-1   sidebar-2"
+            "footer     footer      footer";
+        }
+      }
+    </style>
+  </body>
+</html>
