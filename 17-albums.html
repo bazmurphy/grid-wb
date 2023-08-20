@@ -23,6 +23,10 @@
 .album__artwork {
   width: 100%;
 }</code></pre>
+    <div class="buttons-container">
+      <button class="shrink">Shrink</button>
+      <button class="grow">Grow</button>
+    </div>
     <div class="albums">
       <div class="album">
         <img
@@ -171,6 +175,7 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 20px;
+        transition: width 3s ease;
       }
 
       .album {
@@ -189,5 +194,17 @@
         width: 100%;
       }
     </style>
+    <script>
+      const shrinkButton = document.querySelector(".shrink");
+      const growButton = document.querySelector(".grow");
+      const grid = document.querySelector(".albums");
+      grid.style.width = "100%";
+      shrinkButton.addEventListener("click", () => {
+        grid.style.width = "360px";
+      });
+      growButton.addEventListener("click", () => {
+        grid.style.width = "100%";
+      });
+    </script>
   </body>
 </html>
