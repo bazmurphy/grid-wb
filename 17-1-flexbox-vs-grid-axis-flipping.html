@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Flexbox vs CSS Grid</title>
+  </head>
+  <body class="iframe-body">
+    <pre><code>.container-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  gap: 10px;
+}
+
+.vertical-grid {
+  grid-template-columns: 1fr;
+}
+
+.container-flex {
+  display: flex;
+  gap: 10px;
+}
+
+.vertical-flex {
+  flex-direction: column;
+}
+
+.container-flex .item {
+  flex-basis: 10%;
+}</code></pre>
+    <div class="buttons-container">
+      <button onClick="flipGrid()">Flip Grid</button>
+      <button onClick="flipFlex()">Flip Flex</button>
+    </div>
+    <h2>Grid</h2>
+    <div class="container container-grid">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+      <div class="item">7</div>
+      <div class="item">8</div>
+      <div class="item">9</div>
+      <div class="item">10</div>
+    </div>
+    <h2>Flex</h2>
+    <div class="container container-flex">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+      <div class="item">7</div>
+      <div class="item">8</div>
+      <div class="item">9</div>
+      <div class="item">10</div>
+    </div>
+
+    <style>
+      .container-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+        gap: 10px;
+      }
+
+      .vertical-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .container-flex {
+        display: flex;
+        gap: 10px;
+      }
+
+      .vertical-flex {
+        flex-direction: column;
+      }
+
+      .container-flex .item {
+        flex-basis: 10%;
+      }
+    </style>
+    <script>
+      function flipGrid() {
+        const containerGrid = document.querySelector(".container-grid");
+        containerGrid.classList.toggle("vertical-grid");
+      }
+
+      function flipFlex() {
+        const containerFlex = document.querySelector(".container-flex");
+        containerFlex.classList.toggle("vertical-flex");
+      }
+    </script>
+  </body>
+</html>

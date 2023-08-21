@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Flexbox vs CSS Grid: Self Control!</title>
+  </head>
+  <body class="iframe-body">
+    <pre><code>.corners-grid {
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr;
+  justify-items: start;
+  align-items: start;
+}
+
+.corner-grid-item:nth-child(2),
+.corner-grid-item:nth-child(4) {
+  justify-self: end;
+}
+
+.corner-grid-item:nth-child(3),
+.corner-grid-item:nth-child(4) {
+  align-self: end;
+}
+
+.corners-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.corner-flex-item {
+  flex-basis: 50%;
+}</code></pre>
+    <h2>Grid</h2>
+    <div class="container corners corners-grid">
+      <div class="corner-grid-item item">1</div>
+      <div class="corner-grid-item item">TWO</div>
+      <div class="corner-grid-item item">3</div>
+      <div class="corner-grid-item item">4</div>
+    </div>
+    <h2>Flex (not possible)</h2>
+    <div class="container corners corners-flex">
+      <div class="corner-flex-item item">1</div>
+      <div class="corner-flex-item item">TWO</div>
+      <div class="corner-flex-item item">3</div>
+      <div class="corner-flex-item item">4</div>
+    </div>
+    <style>
+      .corners {
+        height: 200px;
+        width: 200px;
+      }
+
+      .corners-grid {
+        display: grid;
+        grid-template: 1fr 1fr / 1fr 1fr;
+        justify-items: start;
+        align-items: start;
+      }
+
+      .corner-grid-item:nth-child(2),
+      .corner-grid-item:nth-child(4) {
+        justify-self: end;
+      }
+
+      .corner-grid-item:nth-child(3),
+      .corner-grid-item:nth-child(4) {
+        align-self: end;
+      }
+
+      .corners-flex {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .corner-flex-item {
+        flex-basis: 50%;
+      }
+    </style>
+  </body>
+</html>

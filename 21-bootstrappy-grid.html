@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Bootstrappy Grid with CSS Variables!</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="iframe-body">
+    <pre><code>.grid1 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+}
+
+.grid2 .item {
+  /* we can use min-width: 0 on the grid item */
+  min-width: 0;
+}
+
+.grid3 {
+  display: grid;
+  /* we can use minmax(0, 1fr) */
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.grid3 .item {
+  /* and then use use width: 100% on the grid item */
+  width: 100%;
+}
+
+.grid4 {
+  display: grid;
+  /* we can recieve the number of columns from the inline styling, with a fallback of 12 */
+  grid-template-columns: repeat(var(--cols, 12), minmax(0, 1fr));
+  gap: 20px;
+}
+
+.grid4 .item {
+  min-width: 0;
+  width: 100%;
+  /* use css variable and overwrite the variable with inline styling */
+  --span: 1;
+  grid-column: span var(--span);
+}</code></pre>
+    <h2>Example 1</h2>
+    <div class="grid1">
+      <div class="item">1</div>
+      <div class="item">Bazzzz</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+    </div>
+    <h2>Example 2</h2>
+    <div class="grid2">
+      <div class="item">1</div>
+      <div class="item">Bazzzz</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+    </div>
+    <h2>Example 3</h2>
+    <div class="grid3">
+      <div class="item">1</div>
+      <div class="item">Bazzzz</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+    </div>
+    <h2>Example 4</h2>
+    <div class="grid4" style="--cols: 10">
+      <div class="item">1</div>
+      <div class="item" style="--span: 7">
+        <div class="grid4" style="--cols: 2">
+          <div class="item">1</div>
+          <div class="item">2</div>
+        </div>
+      </div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+    </div>
+    <style>
+      .grid1 {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+      }
+
+      .grid2 {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+      }
+
+      .grid2 .item {
+        /* we can use min-width: 0 on the grid item */
+        min-width: 0;
+      }
+
+      .grid3 {
+        display: grid;
+        /* we can use minmax(0, 1fr) */
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .grid3 .item {
+        /* and then use use width: 100% on the grid item */
+        width: 100%;
+      }
+
+      .grid4 {
+        display: grid;
+        /* we can recieve the number of columns from the inline styling, with a fallback of 12 */
+        grid-template-columns: repeat(var(--cols, 12), minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .grid4 .item {
+        min-width: 0;
+        width: 100%;
+        /* use css variable and overwrite the variable with inline styling */
+        --span: 1;
+        grid-column: span var(--span);
+      }
+    </style>
+  </body>
+</html>

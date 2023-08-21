@@ -1,0 +1,265 @@
+html {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.07);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 20px;
+}
+
+img {
+  max-width: 100%;
+}
+
+.wrapper {
+  display: grid;
+  gap: 20px;
+}
+
+.top {
+  display: grid;
+  grid-template-areas:
+    "hero hero cta1"
+    "hero hero cta2";
+  gap: 20px;
+}
+
+.hero {
+  grid-area: hero;
+  min-height: 400px;
+  background: white url("./images/21-responsive-website/taco.jpg");
+  background-size: cover;
+  background-position: bottom right;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 20px;
+}
+
+.hero > * {
+  background-color: hsl(45, 99%, 50%);
+  padding: 5px;
+}
+
+.cta {
+  background-color: hsl(45, 99%, 50%);
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+.cta1 {
+  grid-area: cta1;
+}
+
+.cta2 {
+  grid-area: cta2;
+}
+
+.price {
+  font-size: 4rem;
+  font-weight: 400;
+}
+
+.menu button {
+  background-color: hsl(45, 99%, 50%);
+  padding: 10px;
+  border: none;
+}
+
+.menu button .open {
+  height: 16px;
+  width: 16px;
+}
+
+.menu button .close {
+  height: 16px;
+  width: 16px;
+}
+
+.menu ul {
+  /* display: grid; */
+  /* grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); */
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: 10px;
+}
+
+.menu ul li {
+  flex: 1;
+  width: 100%;
+  padding: 10px;
+  background-color: hsl(45, 99%, 50%);
+  text-align: center;
+}
+
+.menu a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: inherit;
+}
+
+/* attribute selector in css */
+[aria-controls="menu-list"] {
+  display: flex;
+  gap: 5px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.feature {
+  padding: 10px;
+  border: 1px solid white;
+  background-color: hsla(0, 0%, 100%, 0.7);
+  box-shadow: 0 0 4px hsla(0, 0%, 0%, 0.1);
+  text-align: center;
+}
+
+.feature .icon {
+  font-size: 3rem;
+}
+
+.feature p {
+  color: hsla(0, 0%, 0%, 0.5);
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  align-items: center;
+  padding: 50px;
+  background-color: white;
+}
+
+.about__details {
+  display: grid;
+  justify-items: start;
+  gap: 10px;
+}
+
+.about__details button {
+  background-color: hsl(45, 99%, 50%);
+  border: none;
+  padding: 10px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.gallery h2 {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 20px;
+}
+
+/* flip the direction using css variable */
+.gallery h2:before,
+.gallery h2:after {
+  display: block;
+  content: "";
+  height: 10px;
+  background: linear-gradient(
+    to var(--direction, left),
+    hsl(45, 99%, 50%),
+    transparent
+  );
+}
+
+.gallery h2:after {
+  --direction: right;
+}
+
+.gallery img {
+  width: 100%;
+}
+
+@media (max-width: 1000px) {
+  /* change the menu to be below the hero */
+  .menu {
+    order: -1;
+    /* this is for the menu transition */
+    perspective: 800px;
+  }
+
+  [aria-controls="menu-list"] {
+    display: flex;
+  }
+
+  .menu ul {
+    /* this is so its hidden when collapsed (and rotated) */
+    max-height: 0;
+    overflow: hidden;
+    transform: rotateX(90deg);
+    transition: all 0.5s;
+  }
+
+  /* ~ selector is a future sibling */
+  [aria-expanded="true"] ~ ul {
+    /* display: grid; */
+    display: flex;
+    max-height: 500px;
+    transform: rotateX(0);
+    margin-top: 1rem;
+  }
+
+  [aria-expanded="false"] .close {
+    /* hide the X */
+    display: none;
+  }
+
+  [aria-expanded="true"] .open {
+    /* hide the tribar */
+    display: none;
+  }
+
+  [aria-expanded="true"] .close {
+    /* show the X */
+    display: inline-block;
+  }
+}
+
+@media (max-width: 700px) {
+  .top {
+    grid-template-areas:
+      "hero hero"
+      "cta1 cta2";
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .top {
+    grid-template-areas:
+      "hero"
+      "cta1"
+      "cta2";
+  }
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Flexbox vs CSS Grid: Stacked Layout!</title>
+  </head>
+  <body class="iframe-body">
+    <pre><code>.stacked-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 30%);
+  gap: 20px;
+}
+
+.stacked-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.item-flex {
+  flex-basis: 30%;
+}</code></pre>
+    <h2>Grid (not possible)</h2>
+    <div class="container stacked-grid">
+      <div class="item item-grid">1</div>
+      <div class="item item-grid">2</div>
+      <div class="item item-grid">3</div>
+      <div class="item item-grid">4</div>
+      <div class="item item-grid">5</div>
+    </div>
+    <h2>Flex</h2>
+    <div class="container stacked-flex">
+      <div class="item item-flex">1</div>
+      <div class="item item-flex">2</div>
+      <div class="item item-flex">4</div>
+      <div class="item item-flex">3</div>
+      <div class="item item-flex">5</div>
+    </div>
+    <style>
+      .stacked-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 30%);
+        gap: 20px;
+      }
+
+      .stacked-flex {
+        display: flex;
+        /* flex-wrap: wrap; */
+        justify-content: space-around;
+        gap: 20px;
+      }
+
+      .item-flex {
+        flex-basis: 33.33%;
+      }
+    </style>
+  </body>
+</html>

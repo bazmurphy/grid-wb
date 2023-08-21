@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Flexbox vs CSS Grid: Variable Widths on Each Row!</title>
+  </head>
+  <body class="iframe-body">
+    <pre><code>.container-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.container-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.container-flex .item {
+  flex: 1;
+}</code></pre>
+    <h2>Grid (not possible)</h2>
+    <div class="container container-grid">
+      <div class="item">Short</div>
+      <div class="item">Longer............</div>
+      <div class="item">😎</div>
+      <div class="item">This is a sentence with many words</div>
+      <div class="item">Lorem, ipsum.</div>
+      <div class="item">99</div>
+      <div class="item">Roast Duck</div>
+      <div class="item">😈😈😈 Baz 😈😈😈</div>
+      <div class="item">Short</div>
+    </div>
+    <h2>Flex</h2>
+    <div class="container container-flex">
+      <div class="item">Short</div>
+      <div class="item">Longer............</div>
+      <div class="item">😎</div>
+      <div class="item">This is a sentence with many words</div>
+      <div class="item">Lorem, ipsum.</div>
+      <div class="item">99</div>
+      <div class="item">This is a sentence with many more words</div>
+      <div class="item">😈😈😈 Baz 😈😈😈</div>
+      <div class="item">Short</div>
+    </div>
+    <style>
+      .container-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 10px;
+      }
+
+      .container-flex {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .container-flex .item {
+        flex: 1;
+      }
+    </style>
+  </body>
+</html>

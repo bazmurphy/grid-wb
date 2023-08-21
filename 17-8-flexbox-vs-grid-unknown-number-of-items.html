@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Flexbox vs CSS Grid: Unknown Number of Items!</title>
+  </head>
+
+  <body class="iframe-body">
+    <pre><code>.container-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+  gap: 20px;
+}
+
+.container-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.container-flex .item {
+  flex: 1;
+}</code></pre>
+    <h3>Unknown Number of Items</h3>
+    <div class="buttons-container">
+      <button onClick="addGridItem()">Add Grid Item</button>
+      <button onClick="addFlexItem()">Add Flex Item</button>
+    </div>
+    <h2>Grid</h2>
+    <div class="container container-grid">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+    </div>
+    <h2>Flex</h2>
+    <div class="container container-flex">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+    </div>
+    <style>
+      .container-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+        gap: 20px;
+      }
+
+      .container-flex {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .container-flex .item {
+        flex: 1;
+      }
+    </style>
+    <script>
+      function addGridItem() {
+        const gridContainer = document.querySelector(".container-grid");
+        gridContainer.innerHTML += `<div class="item">${++gridContainer.childElementCount}</div>`;
+      }
+
+      function addFlexItem() {
+        const flexContainer = document.querySelector(".container-flex");
+        flexContainer.innerHTML += `<div class="item">${++flexContainer.childElementCount}</div>`;
+      }
+    </script>
+  </body>
+</html>

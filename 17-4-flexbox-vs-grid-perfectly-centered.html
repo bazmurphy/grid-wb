@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Flexbox vs CSS Grid: Perfectly Centered!</title>
+  </head>
+  <body class="iframe-body">
+    <pre><code>.hero-grid {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.hero-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}</code></pre>
+    <h2>Grid</h2>
+    <div class="container hero hero-grid">
+      <h2>Something Big Is Coming</h2>
+      <p>Get Ready...</p>
+    </div>
+
+    <h2>Flex</h2>
+    <div class="container hero hero-flex">
+      <h2>Something Big Is Coming</h2>
+      <p>Get Ready...</p>
+    </div>
+
+    <style>
+      .hero {
+        padding: 50px;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+      }
+
+      .hero-grid {
+        display: grid;
+        justify-items: center;
+        align-items: center;
+      }
+
+      .hero-flex {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </body>
+</html>
